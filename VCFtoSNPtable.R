@@ -1,4 +1,5 @@
-# This script reads vcf files and creates an SNP table 
+# This script reads vcf files and creates an SNP table. It works extremely slowly for large datasets, so it is adviced to perform only the SNP extraction step
+# step with this pipeline, save separate SNP tables for each sample/vcf, and refer to the python script in the same directory for SNP tables' merging.
 
 library(VariantAnnotation)
 library(dplyr)
