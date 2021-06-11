@@ -12,19 +12,12 @@ do
 done
 
 
- for i in $(seq 1 {#r1[@]})
- do
- 	echo $i-1
- done
-
-echo
-
-for i in $(find /ngc/people/armsim/gm/people/armsim/Downsample/1m/data/trim2 -name "*R2_val_2_val_2.fq" | sort)
+for i in $(seq 0 $((${#r1[@]}-1)))
 do
-        r2+=($i)
+        folder=${r1[$i]} | cut -f12 -d "/"
+        mkdir $folder
+        cp STARmapHuman.sh $folder
+        cd $folder
+        sh STARmapHuman.sh ${r1[i]} ${r2[i]}
+
 done
-
-
-
-
-echo ${a[@]}
