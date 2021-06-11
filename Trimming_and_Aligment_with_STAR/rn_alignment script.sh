@@ -14,10 +14,9 @@ done
 
 for i in $(seq 0 $((${#r1[@]}-1)))
 do
-        folder=${r1[$i]} | cut -f12 -d "/"
+        folder=$(echo ${r1[$i]} | cut -f12 -d "/")
         mkdir $folder
         cp STARmapHuman.sh $folder
-        cd $folder
-        sh STARmapHuman.sh ${r1[i]} ${r2[i]}
+        sh $folder/STARmapHuman.sh ${r1[i]} ${r2[i]}
 
 done
